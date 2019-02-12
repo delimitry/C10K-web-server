@@ -215,7 +215,7 @@ int main(int argc, char* argv[]) {
         }
 
         char *head = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n";
-        count = write(events[i].data.fd, head, sizeof head);
+        count = write(events[i].data.fd, head, strlen(head));
         if (count == -1 && errno != EAGAIN) {
           perror("write");
           close(events[i].data.fd);
